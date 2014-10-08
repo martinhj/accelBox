@@ -21,13 +21,13 @@ void draw() {
   pushMatrix();
   translate(width/2, height/2, 0);
   rotateX(radians(map(accX, -9.78f, 9.78f, 0, 360)));
-	if (debug) {println(accX);}
   rotateY(radians(map(accY, -9.78f, 9.78f, 0, 180)));
   rotateZ(radians(map(accZ, -9.78f, 9.78f, 0, 180)));
   noFill();
   stroke(255);
   box(200);
   popMatrix();
+	if (debug) {println(accX);}
   if (simulate) {serialEvent(serialPort);}
 }
 
@@ -38,6 +38,9 @@ String serialSimulator() {
   accX = map(noise(xoff += 0.03f),0.0, 1.0, -10.0, 10.0);
   accY = map(noise(yoff += 0.03f),0.0, 1.0, -10.0, 10.0);
   accZ = map(noise(zoff += 0.03f),0.0, 1.0, -10.0, 10.0);
+	magX = 0.0;
+	magY = 0.0;
+	magZ = 0.0;
   return "" + accX + ":" + accY + ":" + accZ + ":0.36:-42.00:-123.27";
 }
 
