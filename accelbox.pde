@@ -1,6 +1,7 @@
 import processing.serial.*;
 
 int serialInCount = 0;
+int boxSize = 350;
 String serialRead = "";
 Serial serialPort;
 float Pi = 3.14159;
@@ -15,7 +16,7 @@ boolean debug = false;
 
 
 void setup() {
-  size(800, 600, OPENGL);
+  size(1440, 900, OPENGL);
   frameRate(30);
   smooth(8);
   serialPort = new Serial(this, Serial.list()[3], 115200);
@@ -33,7 +34,7 @@ void draw() {
   //noFill();
   stroke(255, 0, 0);
 	fill(255, 255, 255, 50);
-  box(200);
+  box(boxSize);
   popMatrix();
   if (simulate) {serialEvent(serialPort);}
 }
