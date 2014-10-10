@@ -32,7 +32,7 @@ void draw() {
   rotateZ(radians(map(accZ, -9.78f, 9.78f, 0, 180)));
   //noFill();
   stroke(255, 0, 0);
-	fill(0, 0, 255);
+	fill(255, 255, 255, 50);
   box(200);
   popMatrix();
   if (simulate) {serialEvent(serialPort);}
