@@ -6,8 +6,12 @@ Serial serialPort;
 float Pi = 3.14159;
 float xoff = 0.0f, yoff = 300.0f, zoff = 600.0f;
 float accX, accY, accZ, magX, magY, magZ;
+// turn of simulation of accelerometer readings if you don't got a sensor
+// connected.
 boolean simulate = false;
-boolean debug = true;
+// prints out the data the sketch are getting in from the sensor (or from the
+// simulator.
+boolean debug = false;
 
 
 void setup() {
@@ -24,8 +28,8 @@ void draw() {
   translate(width/2, height/2, 0);
   rotateX(radians(map(accX, -7.0f, 7.0f, 0, 360)));
 	//rotateY(-radians((atan2(magY, magX) * 180) / Pi));
-  //rotateY(radians(map(accY, -9.78f, 9.78f, 0, 180)));
-  //rotateZ(radians(map(accZ, -9.78f, 9.78f, 0, 180)));
+  rotateY(radians(map(accY, -9.78f, 9.78f, 0, 180)));
+  rotateZ(radians(map(accZ, -9.78f, 9.78f, 0, 180)));
   //noFill();
   stroke(255, 0, 0);
 	fill(0, 0, 255);
